@@ -1,0 +1,36 @@
+spring:
+  cloud:
+    stream:
+      rabbit:
+        bindings:
+          input:
+            consumer:
+              dlqTtl: 1800000 # 30min
+              autoBindDlq: true
+              republishToDlq: false # disable additional headers on exceptions
+              dlqDeadLetterExchange: output # dlx for dlq
+          payloadInput:
+            consumer:
+              dlqTtl: 1800000 # 30min
+              autoBindDlq: true
+              republishToDlq: false # disable additional headers on exceptions
+              dlqDeadLetterExchange: payload # dlx for dlq
+      bindings:
+        output:
+          destination: output
+          contentType: application/json
+        input:
+          group: outputGroup
+          destination: output
+          contentType: application/json
+          consumer:
+            concurrency: 3
+        payloadOutput:
+          destination: payload
+          contentType: application/json
+        payloadInput:
+          group: payloadGroup
+          destination: payload
+          contentType: application/json
+          consumer:
+            concurrency: 3
