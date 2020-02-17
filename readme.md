@@ -1,5 +1,8 @@
 # Spring cloud stream rabbit
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=shermende_spring-cloud-stream-rabbit&metric=alert_status)](https://sonarcloud.io/dashboard?id=shermende_spring-cloud-stream-rabbit)
+[![CircleCI](https://circleci.com/gh/shermende/spring-cloud-stream-rabbit.svg?style=svg)](https://circleci.com/gh/shermende/spring-cloud-stream-rabbit)
+
 ## Run
 ```
 $ docker-compose up -d --build
